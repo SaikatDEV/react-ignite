@@ -1,28 +1,24 @@
 const initState = {
   popular: [],
-  newGames: [],
   upComing: [],
-  searched: [],
+  allGames: [],
+  //   searched: [],
 };
 
 // Reducer
+// We are sending payload below (popular: action.payload.popular ) to update the above popular array
 const gamesReducer = (state = initState, action) => {
   switch (action.type) {
     case "FETCH_GAMES":
-      return { ...state };
+      return {
+        ...state,
+        popular: action.payload.popular,
+        upComing: action.payload.upComing,
+        allGames: action.payload.allGames,
+      };
     default:
       return { ...state };
   }
 };
-
-// ACTION Creator
-const fetchGames = (userData) => {
-  return {
-    type: "FETCH_GAMES",
-    payload: userData,
-  };
-};
-
-fetchGames();
 
 export default gamesReducer;

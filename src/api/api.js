@@ -1,5 +1,8 @@
+// https://api.rawg.io/api/games?key=a77e904e38434e63ad0cce0d0ac43e1f&dates=2023-02-29,2024-02-29&platforms=18,1,7
+
 // BASE URL
 const base_url = "https://api.rawg.io/api/";
+const key = "a77e904e38434e63ad0cce0d0ac43e1f";
 
 // Getting the date
 const currentDate = (nYear = 0) => {
@@ -16,8 +19,26 @@ const currentDate = (nYear = 0) => {
   }
 };
 // Popular Games
-const popular_games = `games?dates=${currentDate(
-  -1
-)},${currentDate()}&ordering=-rating&paze_size=10`;
+const popular_games = `games?key=${key}&dates=${currentDate(
+  -4
+)},${currentDate()}&platforms=18,1,7`;
+// console.log(`${base_url}${popular_games}`);
+
+// upcoming Games
+const upcoming_games = `games?key=${key}&dates=${currentDate(
+  -4
+)},${currentDate()}&platforms=18,1,7`;
+// console.log(`${base_url}${upcoming_games}`);
+
+// list of all Games
+const all_games = `games?key=${key}`;
+// console.log(`${base_url}games?key=${key}`);
 
 export const popularGamesURL = () => `${base_url}${popular_games}`;
+export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
+export const allGamesURL = () => `${base_url}${all_games}`;
+
+// Steps:
+// 1. Build API
+// 2. Go to Actions > import > FETCH Data > Dispach
+// 3. Go to Reducer > Add them in to reducer to update them
