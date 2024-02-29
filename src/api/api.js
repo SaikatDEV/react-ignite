@@ -20,6 +20,4 @@ const popular_games = `games?dates=${currentDate(
   -1
 )},${currentDate()}&ordering=-rating&paze_size=10`;
 
-const popularGamesURL = () => `${base_url}${popular_games}`;
-
-console.log(popularGamesURL());
+export const popularGamesURL = () => `${base_url}${popular_games}`;
