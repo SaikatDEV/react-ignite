@@ -1,6 +1,7 @@
 // This below is a initial variable, How they will look like
 const initState = {
   detailOfTheGame: {},
+  screenshots: {},
 };
 
 // Reducer
@@ -11,6 +12,7 @@ const detailReducer = (state = initState, action) => {
       return {
         ...state,
         detailOfTheGame: action.payload.game,
+        screenshots: action.payload.screen,
       };
     default:
       return { ...state };
