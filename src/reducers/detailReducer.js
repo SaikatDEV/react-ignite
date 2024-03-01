@@ -1,25 +1,20 @@
 // This below is a initial variable, How they will look like
 const initState = {
-  popular: [],
-  upComing: [],
-  allGames: [],
-  //   searched: [],
+  detailOfTheGame: {},
 };
 
 // Reducer
 // We are sending payload below (popular: action.payload.popular ) to update the above popular array
-const gamesReducer = (state = initState, action) => {
+const detailReducer = (state = initState, action) => {
   switch (action.type) {
-    case "FETCH_GAMES":
+    case "GET_DETAIL":
       return {
         ...state,
-        popular: action.payload.popular,
-        upComing: action.payload.upComing,
-        allGames: action.payload.allGames,
+        detailOfTheGame: action.payload.game,
       };
     default:
       return { ...state };
   }
 };
 
-export default gamesReducer;
+export default detailReducer;

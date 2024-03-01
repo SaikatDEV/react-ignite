@@ -38,6 +38,36 @@ const Home = () => {
           );
         })}
       </StyledGames>
+
+      <h2>Popular Games</h2>
+      <StyledGames>
+        {popular.map((eachGame) => {
+          return (
+            <Game
+              name={eachGame.name}
+              released={eachGame.released}
+              id={eachGame.id}
+              image={eachGame.background_image}
+              key={eachGame.id}
+            />
+          );
+        })}
+      </StyledGames>
+
+      <h2>All Games</h2>
+      <StyledGames>
+        {allGames.map((eachGame) => {
+          return (
+            <Game
+              name={eachGame.name}
+              released={eachGame.released}
+              id={eachGame.id}
+              image={eachGame.background_image}
+              key={eachGame.id}
+            />
+          );
+        })}
+      </StyledGames>
     </StyledGameList>
   );
 };

@@ -37,8 +37,20 @@ const all_games = `games?key=${key}`;
 export const popularGamesURL = () => `${base_url}${popular_games}`;
 export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
 export const allGamesURL = () => `${base_url}${all_games}`;
+// GAME DETAIL with a param game_id which we dont know yet
+export const gameDetailsURL = (game_id) =>
+  `${base_url}games/${game_id}?key=${key}`;
+// Game Screenshots
+export const gameScreenshotsURL = (game_id) =>
+  `${base_url}games/${game_id}/screenshots?key=${key}`;
 
-// Steps:
-// 1. Build API
-// 2. Go to Actions > import > FETCH Data > Dispach
+// console.log(`${base_url}games/14/screenshots?key=${key}`);
+
+// Steps to Build REDUX state:
+// 1. Build API URL
+// 2. Go to Actions/Create an Action js file > import > FETCH Data > Dispach
 // 3. Go to Reducer > Add them in to reducer to update them
+// 4. After complete creating Reducer, Hook it in the index.js in the reducers folder (So we can see them as state in redux tool also)
+// 5. Retrieve the state and use in the components as below:
+// step1: When we dispatch with loadDetail with/without param
+// step2: It will send a payload with what we fetch in the URL
