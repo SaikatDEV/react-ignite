@@ -1,7 +1,7 @@
 // This below is a initial variable, How they will look like
 const initState = {
   detailOfTheGame: { platforms: [] },
-  screenshots: {},
+  screenshots: { results: [] },
 };
 
 // Reducer

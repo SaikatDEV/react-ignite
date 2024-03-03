@@ -14,18 +14,6 @@ const GameDetail = () => {
   const { detailOfTheGame, screenshots } = useSelector((state) => state.detail);
   //   console.log(detail);
 
-  //   <div className="gallery">
-  // {screenshots.map((eachScreenshot) => {
-  //   return (
-  //     <img
-  //       key={eachScreenshot.id}
-  //       src={eachScreenshot.image}
-  //       alt={eachScreenshot.id}
-  //     />
-  //   );
-  // })}
-  // </div>
-
   // JSX
   return (
     <>
@@ -58,7 +46,17 @@ const GameDetail = () => {
               />
               <p>{detailOfTheGame.description}</p>
             </StyledMedia>
-            <div></div>
+            <div className="gallery">
+              {screenshots.map((eachScreenshot) => {
+                return (
+                  <img
+                    key={eachScreenshot.id}
+                    src={eachScreenshot.image}
+                    alt={eachScreenshot.id}
+                  />
+                );
+              })}
+            </div>
           </StyledDetail>
         </StyledCardShadow>
       )}
