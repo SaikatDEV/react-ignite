@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 // components
 import Game from "../components/Game";
+import GameDetail from "../components/GameDetail";
 
 const Home = () => {
   // FETCH GAMES
@@ -24,6 +25,7 @@ const Home = () => {
 
   return (
     <StyledGameList>
+      <GameDetail />
       <h2>Upcoming Games</h2>
       <StyledGames>
         {upComing.map((eachGame) => {
