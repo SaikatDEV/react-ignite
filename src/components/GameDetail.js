@@ -15,16 +15,17 @@ const GameDetail = () => {
   //   console.log(detail);
   // JSX
   return (
-    <CardShadow>
-      <Detail>
-        <div className="stats">
+    <StyledCardShadow>
+      <StyledDetail>
+        <StyledStats>
           <div className="rating">
             <h3>Name: {detailOfTheGame.name}</h3>
+            <h3>WebSite: {detailOfTheGame.website}</h3>
             <p>Rating: {detailOfTheGame.rating}</p>
           </div>
-          <div className="info">
-            <h3>Platforms</h3>
-            <div className="platforms">
+          <StyledInfo>
+            <h3>Platforms:</h3>
+            <StyledPlatforms>
               {detailOfTheGame.platforms.map((eachPlatform) => {
                 return (
                   <h3 key={eachPlatform.platform.id}>
@@ -32,15 +33,17 @@ const GameDetail = () => {
                   </h3>
                 );
               })}
-            </div>
-          </div>
-        </div>
-        <div className="media">
+            </StyledPlatforms>
+          </StyledInfo>
+        </StyledStats>
+        <StyledMedia>
           <img
-            src={detailOfTheGame.backgroundImage}
-            alt={detailOfTheGame.name}
+            src={detailOfTheGame.background_image}
+            alt={detailOfTheGame.background_image}
           />
-        </div>
+          <p>{detailOfTheGame.description}</p>
+        </StyledMedia>
+
         <div className="gallery">
           {screenshots.map((eachScreenshot) => {
             return (
@@ -52,12 +55,12 @@ const GameDetail = () => {
             );
           })}
         </div>
-      </Detail>
-    </CardShadow>
+      </StyledDetail>
+    </StyledCardShadow>
   );
 };
 
-const CardShadow = styled.div`
+const StyledCardShadow = styled.div`
   width: 100%;
   min-height: 100vh;
   overflow-y: scroll;
@@ -78,11 +81,11 @@ const CardShadow = styled.div`
   }
 `;
 
-const Detail = styled.div`
+const StyledDetail = styled.div`
   background: white;
   width: 80%;
   border-radius: 1rem;
-  padding: 2rem 20rem;
+  padding: 2rem 5rem;
   color: black;
   left: 10%;
   /* Absolutely positioned elements can overlap other elements on the page. 
@@ -90,6 +93,36 @@ const Detail = styled.div`
   position: absolute;
   img {
     width: 100%;
+  }
+`;
+
+const StyledStats = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const StyledInfo = styled.div`
+  text-align: center;
+`;
+
+const StyledPlatforms = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  img {
+    margin-left: 3rem;
+  }
+`;
+
+const StyledMedia = styled.div`
+  margin-top: 3rem;
+  img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+  }
+  p {
+    padding: 1rem 0rem;
   }
 `;
 
