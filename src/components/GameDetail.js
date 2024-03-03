@@ -11,13 +11,15 @@ const GameDetail = () => {
   //   below is a single data retrieve (detail)
   //   const detail = useSelector((state) => state.detailOfTheGame);
   //   We can write above line also as below:
-  const { detailOfTheGame, screenshots } = useSelector((state) => state.detail);
+  const { detailOfTheGame, screenshots, isLoading } = useSelector(
+    (state) => state.detail
+  );
   //   console.log(detail);
 
   // JSX
   return (
     <>
-      {detailOfTheGame && (
+      {!isLoading && (
         <StyledCardShadow>
           <StyledDetail>
             <StyledStats>
