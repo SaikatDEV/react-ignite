@@ -32,7 +32,6 @@ const Home = () => {
 
   return (
     <StyledGameList>
-      <GameDetail />
       <h2>Upcoming Games</h2>
       <StyledGames>
         {upComing.map((eachGame) => {

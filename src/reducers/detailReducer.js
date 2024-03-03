@@ -1,6 +1,6 @@
 // This below is a initial variable, How they will look like
 const initState = {
-  detailOfTheGame: {},
+  detailOfTheGame: { platforms: [] },
   screenshots: {},
 };
 

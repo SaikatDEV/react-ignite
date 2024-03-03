@@ -13,50 +13,56 @@ const GameDetail = () => {
   //   We can write above line also as below:
   const { detailOfTheGame, screenshots } = useSelector((state) => state.detail);
   //   console.log(detail);
+
+  //   <div className="gallery">
+  // {screenshots.map((eachScreenshot) => {
+  //   return (
+  //     <img
+  //       key={eachScreenshot.id}
+  //       src={eachScreenshot.image}
+  //       alt={eachScreenshot.id}
+  //     />
+  //   );
+  // })}
+  // </div>
+
   // JSX
   return (
-    <StyledCardShadow>
-      <StyledDetail>
-        <StyledStats>
-          <div className="rating">
-            <h3>Name: {detailOfTheGame.name}</h3>
-            <h3>WebSite: {detailOfTheGame.website}</h3>
-            <p>Rating: {detailOfTheGame.rating}</p>
-          </div>
-          <StyledInfo>
-            <h3>Platforms:</h3>
-            <StyledPlatforms>
-              {detailOfTheGame.platforms.map((eachPlatform) => {
-                return (
-                  <h3 key={eachPlatform.platform.id}>
-                    {eachPlatform.platform.name}
-                  </h3>
-                );
-              })}
-            </StyledPlatforms>
-          </StyledInfo>
-        </StyledStats>
-        <StyledMedia>
-          <img
-            src={detailOfTheGame.background_image}
-            alt={detailOfTheGame.background_image}
-          />
-          <p>{detailOfTheGame.description}</p>
-        </StyledMedia>
-
-        <div className="gallery">
-          {screenshots.map((eachScreenshot) => {
-            return (
+    <>
+      {detailOfTheGame && (
+        <StyledCardShadow>
+          <StyledDetail>
+            <StyledStats>
+              <div className="rating">
+                <h3>Name: {detailOfTheGame.name}</h3>
+                <h3>WebSite: {detailOfTheGame.website}</h3>
+                <p>Rating: {detailOfTheGame.rating}</p>
+              </div>
+              <StyledInfo>
+                <h3>Platforms:</h3>
+                <StyledPlatforms>
+                  {detailOfTheGame.platforms.map((eachPlatform) => {
+                    return (
+                      <h3 key={eachPlatform.platform.id}>
+                        {eachPlatform.platform.name}
+                      </h3>
+                    );
+                  })}
+                </StyledPlatforms>
+              </StyledInfo>
+            </StyledStats>
+            <StyledMedia>
               <img
-                key={eachScreenshot.id}
-                src={eachScreenshot.image}
-                alt={eachScreenshot.id}
+                src={detailOfTheGame.background_image}
+                alt={detailOfTheGame.background_image}
               />
-            );
-          })}
-        </div>
-      </StyledDetail>
-    </StyledCardShadow>
+              <p>{detailOfTheGame.description}</p>
+            </StyledMedia>
+            <div></div>
+          </StyledDetail>
+        </StyledCardShadow>
+      )}
+    </>
   );
 };
 
