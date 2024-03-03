@@ -8,8 +8,14 @@ import { motion } from "framer-motion";
 // components
 import Game from "../components/Game";
 import GameDetail from "../components/GameDetail";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  // Get the current location
+  const location = useLocation();
+  // console.log(location.pathname);
+  const pathId = location.pathname.split("/")[2];
+
   // FETCH GAMES
   const dispatch = useDispatch();
 
@@ -22,6 +28,7 @@ const Home = () => {
   //   We can write above line also as below:
   const { popular, upComing, allGames } = useSelector((state) => state.games);
   //   console.log(games);
+  // {pathId && <GameDetail />}
 
   return (
     <StyledGameList>
@@ -40,7 +47,6 @@ const Home = () => {
           );
         })}
       </StyledGames>
-
       <h2>Popular Games</h2>
       <StyledGames>
         {popular.map((eachGame) => {
@@ -55,7 +61,6 @@ const Home = () => {
           );
         })}
       </StyledGames>
-
       <h2>All Games</h2>
       <StyledGames>
         {allGames.map((eachGame) => {
