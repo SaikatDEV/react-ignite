@@ -3,9 +3,20 @@ import styled from "styled-components";
 // Redux
 // use Selector for get the data and use them
 import { useSelector } from "react-redux";
+// History
+import { useNavigate } from "react-router-dom";
 
 // create component
 const GameDetail = () => {
+  const navigate = useNavigate();
+  const exitDetailHandler = (e) => {
+    const shadowElement = e.target;
+    // console.log(e.target);
+    if (shadowElement.classList.contains("cardShadow")) {
+      navigate("/");
+    }
+  };
+
   // Data
   //   Get the data from state using useSelector
   //   below is a single data retrieve (detail)
@@ -20,7 +31,7 @@ const GameDetail = () => {
   return (
     <>
       {!isLoading && (
-        <StyledCardShadow>
+        <StyledCardShadow className="cardShadow" onClick={exitDetailHandler}>
           <StyledDetail>
             <StyledStats>
               <div className="rating">
